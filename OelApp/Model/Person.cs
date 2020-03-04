@@ -2,6 +2,14 @@
 {
     public class Person
     {
+        
+        public string name
+        {
+            get => default;
+            set
+            {
+            }
+        }
         public int age
         {
             get => default;
