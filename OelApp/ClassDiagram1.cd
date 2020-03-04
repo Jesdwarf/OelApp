@@ -3,7 +3,7 @@
   <Class Name="OelApp.Session">
     <Position X="8.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Session.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -17,10 +17,10 @@
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OelApp.GenstandsOmregner">
+  <Class Name="OelApp.UnitConversionUtility">
     <Position X="6" Y="2" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GenstandsOmregner.cs</FileName>
     </TypeIdentifier>
   </Class>

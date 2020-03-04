@@ -1,8 +1,8 @@
 ﻿namespace OelApp
 {
-    public class GenstandsOmregner
+    public class UnitConversionUtility
     {
-        public int Omregning()
+        public int UnitConversion()
         {
             throw new System.NotImplementedException();
         }

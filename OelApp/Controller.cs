@@ -2,7 +2,7 @@
 {
     public class Controller
     {
-        public GenstandsOmregner GenstandsOmregner
+        public UnitConversionUtility GenstandsOmregner
         {
             get => default;
             set

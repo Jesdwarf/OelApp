@@ -3,7 +3,7 @@
     public class Session
     {
 
-        public int antal
+        public int NumberOfUnits
         {
             get => default;
             set
