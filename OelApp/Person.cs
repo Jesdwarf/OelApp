@@ -10,7 +10,7 @@
             }
         }
 
-        public string køn
+        public string gender
         {
             get => default;
             set
@@ -18,7 +18,7 @@
             }
         }
 
-        public int vægt
+        public int weight
         {
             get => default;
             set
