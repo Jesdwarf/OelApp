@@ -3,35 +3,11 @@
     public class Person
     {
         
-        public string name
-        {
-            get => default;
-            set
-            {
-            }
-        }
-        public int age
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Name { get; set; }
+        public int Age { get; set; }
 
-        public string gender
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Gender { get; set; }
 
-        public int weight
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int Weight { get; set; }
     }
 }
