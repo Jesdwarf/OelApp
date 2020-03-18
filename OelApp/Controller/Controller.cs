@@ -10,12 +10,6 @@ namespace OelApp
         private Person user;
         private Session session;
 
-        public UnitConversionUtility UnitConversionUtility
-        {
-            get => default;
-            set { }
-        }
-
         public Controller(IView view)
         {
             this.view = view;
@@ -25,29 +19,38 @@ namespace OelApp
         {
             view.print("Write your name:");
             AddPerson(view.read());
-            session = new Session{Person = user, StartTime = DateTime.Now};
-            
-            
-            RegisterDrink(TypeOfDrink.beer);
-            UnitConversionUtility.CalculateBAC();
+
+            view.print("Write your weight in kilograms your fat fuck:");
+            user.Weight = int.Parse(view.read());
+
+            view.print("Write your age:");
+            user.Age = int.Parse(view.read());
+
+            view.print("Write your gender, there are only two. M for male, F for female:");
+            user.Gender = view.read() == "M" ? "male" : "female";
+
+            session = new Session {Person = user, StartTime = DateTime.Now};
+
+            while (true)
+            {
+                view.print("What are you drinking? Type B for beer");
+                if (view.read().Equals("B"))
+                {
+                    RegisterDrink(TypeOfDrink.beer);
+                }
+            }
         }
 
         public void AddPerson(string name)
         {
             user = new Person {Name = name};
-            
             view.print($"{name} is now the user of this session!");
         }
 
         public void RegisterDrink(TypeOfDrink drink)
         {
-            view.print($"{user.Name} just drank a {drink}");
-        }
-
-        public Session Session
-        {
-            get => default;
-            set { }
+            if (drink.Equals(TypeOfDrink.beer)) session.NumberOfUnits++;
+            view.print($"{user.Name} just drank a {drink} and now his/her BAC is now {UnitConversionUtility.CalculateBac(session)}");
         }
     }
 }
