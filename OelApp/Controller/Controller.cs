@@ -27,7 +27,7 @@ namespace OelApp
             user.Age = int.Parse(view.read());
 
             view.print("Write your gender, there are only two. M for male, F for female:");
-            user.Gender = view.read() == "M" ? "male" : "female";
+            user.GenderCoef = view.read() == "M" ? 0.7 : 0.6;
 
             session = new Session {Person = user, StartTime = DateTime.Now};
 

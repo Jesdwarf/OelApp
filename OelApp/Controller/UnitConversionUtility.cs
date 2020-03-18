@@ -13,7 +13,7 @@ namespace OelApp
         {
             double alcoholgram = session.NumberOfUnits * 12;
             double tid = (DateTime.Now.Hour - session.StartTime.Hour) * 0.15;
-            double vægt = session.Person.Weight * 0.70;
+            double vægt = session.Person.Weight * session.Person.GenderCoef;
             var Bac = (alcoholgram / vægt) - tid;
             return Bac;
         }
