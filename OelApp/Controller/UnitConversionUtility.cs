@@ -1,16 +1,21 @@
-﻿namespace OelApp
-{
-    public class UnitConversionUtility
-    {
-        public int UnitConversion()
-        //For kvinder:
-        //Alkohol i gram / (kropsvægten i kg x 60 %) - (0,15 x timer fra drikkestart) = promille
-        //For mænd:
-        //Alkohol i gram / (kropsvægten i kg x 70 %) - (0,15 x timer fra drikkestart) = promille
-        //Du finder oversigt over forskellige drikkevarers indhold af alkohol i gram i artiklen fakta om alkohol
+﻿using System;
+using System.Transactions;
 
+namespace OelApp
+{
+    //For kvinder:
+    //Alkohol i gram / (kropsvægten i kg x 60 %) - (0,15 x timer fra drikkestart) = promille
+    //For mænd:
+    //Alkohol i gram / (kropsvægten i kg x 70 %) - (0,15 x timer fra drikkestart) = promille
+    public static class UnitConversionUtility
+    {
+        public static double CalculateBac(Session session)
         {
-            throw new System.NotImplementedException();
+            double alcoholgram = session.NumberOfUnits * 12;
+            double tid = (DateTime.Now.Hour - session.StartTime.Hour) * 0.15;
+            double vægt = session.Person.Weight * 0.70;
+            var Bac = (alcoholgram / vægt) - tid;
+            return Bac;
         }
     }
 }

@@ -29,6 +29,7 @@ namespace OelApp
             
             
             RegisterDrink(TypeOfDrink.beer);
+            UnitConversionUtility.CalculateBAC();
         }
 
         public void AddPerson(string name)
