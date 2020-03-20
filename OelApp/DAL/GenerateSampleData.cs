@@ -9,9 +9,9 @@ namespace OelApp
         {
             List<Drink> drinks = new List<Drink>
             {
-                new Drink {Name = "Beer", Units = 1.0},
-                new Drink {Name = "StrongBeer", Units = 1.5},
-                new Drink {Name = "FlaskeVodka", Units = 19}
+                new Drink {Id = 1, Name = "Øl", Units = 1.0},
+                new Drink {Id = 2, Name = "Vild guldøl", Units = 1.5},
+                new Drink {Id = 3, Name = "En kodyl flaske vodka", Units = 19}
             };
             JsonDAL.WriteToJsonFile(drinks);
         }

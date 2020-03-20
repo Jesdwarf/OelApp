@@ -38,15 +38,15 @@ namespace OelApp
 
                 foreach (Drink drink in LoadDrinks())
                 {
-                    view.print(drink.Name);
+                    view.print($"{drink.Id}. {drink.Name}");
                 }
                 view.print("");
 
-                string input = view.read().ToLower();
+                string input = view.read();
                 
                 foreach (Drink drink in LoadDrinks())
                 {
-                    if (input.Equals(drink.Name.ToLower()))
+                    if (int.Parse(input) == drink.Id)
                     {
                         RegisterDrink(drink);
                     }
