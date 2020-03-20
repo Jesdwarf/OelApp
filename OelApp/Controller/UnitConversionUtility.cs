@@ -11,11 +11,12 @@ namespace OelApp
     {
         public static double CalculateBac(Session session)
         {
+            double genderCoef = session.Person.Gender == "m" ? 0.7 : 0.6;
             double alcoholgram = session.NumberOfUnits * 12;
             double tid = (DateTime.Now.Hour - session.StartTime.Hour) * 0.15;
-            double vægt = session.Person.Weight * session.Person.GenderCoef;
+            double vægt = session.Person.Weight * genderCoef;
             var Bac = (alcoholgram / vægt) - tid;
-            return Bac;
+            return Math.Round(Bac, 2);
         }
     }
 }
