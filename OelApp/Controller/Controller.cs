@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net;
 
 namespace OelApp
 {
@@ -32,13 +34,25 @@ namespace OelApp
 
             while (true)
             {
-                view.print("What are you drinking? Type B for beer");
-                if (view.read().ToLower().Equals("b"))
+                view.print("What are you drinking?");
+
+                foreach (Drink drink in LoadDrinks())
                 {
-                    RegisterDrink(TypeOfDrink.beer);
+                    view.print(drink.Name);
                 }
+                view.print("");
+
+                string input = view.read().ToLower();
+                
+                foreach (Drink drink in LoadDrinks())
+                {
+                    if (input.Equals(drink.Name.ToLower()))
+                    {
+                        RegisterDrink(drink);
+                    }
+                }
+                
             }
-            
         }
 
         public void AddPerson(string name)
@@ -47,10 +61,16 @@ namespace OelApp
             view.print($"{name} is now the user of this session!");
         }
 
-        public void RegisterDrink(TypeOfDrink drink)
+        public void RegisterDrink(Drink drink)
         {
-            session.NumberOfUnits += (int) drink;
-            view.print($"{user.Name} just drank a {drink} and now his/her BAC is now {UnitConversionUtility.CalculateBac(session)}");
+            session.NumberOfUnits += (int) drink.Units;
+            view.print(
+                $"{user.Name} just drank a {drink.Name} and now his/her BAC is now {UnitConversionUtility.CalculateBac(session)}");
+        }
+
+        public List<Drink> LoadDrinks()
+        {
+            return JsonDAL.ReadFromJsonFile<List<Drink>>();
         }
     }
 }

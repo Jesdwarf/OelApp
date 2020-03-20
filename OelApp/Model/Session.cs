@@ -2,6 +2,7 @@
 
 namespace OelApp
 {
+    [Serializable]
     public class Session
     {
         public double NumberOfUnits { get; set; }
