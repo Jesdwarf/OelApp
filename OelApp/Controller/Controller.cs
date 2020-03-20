@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection.Metadata;
 
 namespace OelApp
 {
@@ -39,6 +38,7 @@ namespace OelApp
                     RegisterDrink(TypeOfDrink.beer);
                 }
             }
+            
         }
 
         public void AddPerson(string name)
@@ -49,7 +49,7 @@ namespace OelApp
 
         public void RegisterDrink(TypeOfDrink drink)
         {
-            if (drink.Equals(TypeOfDrink.beer)) session.NumberOfUnits++;
+            session.NumberOfUnits += (int) drink;
             view.print($"{user.Name} just drank a {drink} and now his/her BAC is now {UnitConversionUtility.CalculateBac(session)}");
         }
     }

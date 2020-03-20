@@ -2,7 +2,8 @@
 {
     public enum TypeOfDrink
     {
-        beer,
+        beer = 1,
+        goldenBeer = 2,
         glassOfWine,
         maxPct,
         hedvin
