@@ -20,7 +20,7 @@ namespace OelApp
             AddPerson(view.read());
 
             view.print("Write your weight in kilograms your fat fuck:");
-            user.Weight = int.Parse(view.read());
+            user.Weight = double.Parse(view.read());
 
             // view.print("Write your age:");
             // user.Age = int.Parse(view.read());

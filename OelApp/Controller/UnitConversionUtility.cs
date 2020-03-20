@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Transactions;
 
 namespace OelApp
 {
@@ -13,9 +12,9 @@ namespace OelApp
         {
             double genderCoef = session.Person.Gender == "m" ? 0.7 : 0.6;
             double alcoholgram = session.NumberOfUnits * 12;
-            double tid = (DateTime.Now.Hour - session.StartTime.Hour) * 0.15;
+            double tid = (DateTime.Now.Minute - session.StartTime.Minute) / 60.0 * 0.15;
             double vægt = session.Person.Weight * genderCoef;
-            var Bac = (alcoholgram / vægt) - tid;
+            double Bac = (alcoholgram / vægt) - tid;
             return Math.Round(Bac, 2);
         }
     }
